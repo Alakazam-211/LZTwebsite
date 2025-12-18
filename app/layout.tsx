@@ -17,6 +17,29 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LZTEK | Hosting Services",
   description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
+  icons: {
+    icon: '/assets/favicon.jpg',
+    shortcut: '/assets/favicon.jpg',
+    apple: '/assets/favicon.jpg',
+  },
+  openGraph: {
+    title: "LZTEK | Hosting Services",
+    description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'LZTEK Hosting Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "LZTEK | Hosting Services",
+    description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({
