@@ -1,0 +1,299 @@
+/* Fillout Custom CSS - Geist Theme
+ * Matches the "Send us a Message" form styling from LZTEK contact page
+ * Based on Vercel's Geist design system
+ */
+
+/* Import Geist font (Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Form Container */
+.fillout-field-container {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  max-width: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+/* Field Labels */
+.fillout-field-label p {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.6;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 0.25rem; /* 4px */
+  display: block;
+}
+
+/* Required Asterisk */
+.fillout-required-asterisk {
+  color: #000000;
+}
+
+/* Input Fields - Short Answer */
+.fillout-field-short-answer input[type="text"],
+.fillout-field-short-answer input[type="email"],
+.fillout-field-short-answer input[type="tel"],
+.fillout-field-short-answer input[type="number"],
+.fillout-field-short-answer input[type="url"] {
+  width: 100%;
+  padding: 0.625rem 1rem; /* 10px 16px */
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  outline: none;
+  min-height: 44px;
+  transition: none; /* Static design - no transitions */
+}
+
+.fillout-field-short-answer input[type="text"]:hover,
+.fillout-field-short-answer input[type="email"]:hover,
+.fillout-field-short-answer input[type="tel"]:hover,
+.fillout-field-short-answer input[type="number"]:hover,
+.fillout-field-short-answer input[type="url"]:hover {
+  border-color: #e5e5e5;
+}
+
+.fillout-field-short-answer input[type="text"]:focus,
+.fillout-field-short-answer input[type="email"]:focus,
+.fillout-field-short-answer input[type="tel"]:focus,
+.fillout-field-short-answer input[type="number"]:focus,
+.fillout-field-short-answer input[type="url"]:focus {
+  border-color: #d4d4d4;
+  box-shadow: none;
+  outline: 1px solid #d4d4d4;
+  outline-offset: -1px;
+}
+
+/* Textarea Fields */
+.fillout-field-long-answer textarea {
+  width: 100%;
+  padding: 0.625rem 1rem; /* 10px 16px */
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  outline: none;
+  min-height: 44px;
+  resize: none;
+  transition: none; /* Static design - no transitions */
+}
+
+.fillout-field-long-answer textarea:hover {
+  border-color: #e5e5e5;
+}
+
+.fillout-field-long-answer textarea:focus {
+  border-color: #d4d4d4;
+  box-shadow: none;
+  outline: 1px solid #d4d4d4;
+  outline-offset: -1px;
+}
+
+/* Placeholder Text */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="number"]::placeholder,
+input[type="url"]::placeholder,
+textarea::placeholder {
+  color: #666666; /* Secondary text color */
+}
+
+/* Dropdown Fields */
+.fillout-field-dropdown select {
+  width: 100%;
+  padding: 0.625rem 1rem; /* 10px 16px */
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  outline: none;
+  min-height: 44px;
+  transition: none; /* Static design - no transitions */
+}
+
+.fillout-field-dropdown select:hover {
+  border-color: #e5e5e5;
+}
+
+.fillout-field-dropdown select:focus {
+  border-color: #d4d4d4;
+  box-shadow: none;
+  outline: 1px solid #d4d4d4;
+  outline-offset: -1px;
+}
+
+/* Submit Button */
+.fillout-field-button button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 0;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  min-height: 44px;
+  cursor: pointer;
+  transition: none; /* Static design - no transitions */
+  text-transform: none;
+  width: 100%;
+}
+
+.fillout-field-button button:hover {
+  background: #1a1a1a;
+  /* No transform, no shadow - static design */
+}
+
+.fillout-field-button button:active {
+  background: #1a1a1a;
+  /* No transform - static design */
+}
+
+/* Back Button */
+.fillout-back-button button {
+  background: transparent;
+  color: #000000;
+  border: 1px solid #eaeaea;
+  border-radius: 0;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  min-height: 44px;
+  cursor: pointer;
+  transition: none; /* Static design - no transitions */
+}
+
+.fillout-back-button button:hover {
+  border-color: #e5e5e5;
+  background: #fafafa;
+}
+
+/* Skip Button */
+.fillout-skip-button button {
+  background: transparent;
+  color: #000000;
+  border: 1px solid #eaeaea;
+  border-radius: 0;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  min-height: 44px;
+  cursor: pointer;
+  transition: none; /* Static design - no transitions */
+}
+
+.fillout-skip-button button:hover {
+  border-color: #e5e5e5;
+  background: #fafafa;
+}
+
+/* Field Captions */
+.fillout-caption p {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.6;
+  color: #666666; /* Secondary text */
+  margin-top: 0.25rem;
+}
+
+/* Error Validation Messages */
+.fillout-error-validation-message {
+  color: #000000;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  margin-top: 0.25rem;
+}
+
+/* Disabled Input States */
+.fillout-field-short-answer input:disabled,
+.fillout-field-long-answer textarea:disabled,
+.fillout-field-dropdown select:disabled {
+  background: #fafafa;
+  color: #666666;
+  cursor: not-allowed;
+  border-color: #eaeaea;
+}
+
+/* Radio and Checkbox Fields */
+.fillout-field-multiple-choice input[type="radio"],
+.fillout-field-multiple-choice input[type="checkbox"] {
+  accent-color: #000000;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+}
+
+.fillout-field-multiple-choice label {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  color: #000000;
+}
+
+/* Date and Time Fields */
+.fillout-field-date input[type="date"],
+.fillout-field-date input[type="time"],
+.fillout-field-date input[type="datetime-local"] {
+  width: 100%;
+  padding: 0.625rem 1rem; /* 10px 16px */
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  outline: none;
+  min-height: 44px;
+  transition: none; /* Static design - no transitions */
+}
+
+.fillout-field-date input[type="date"]:hover,
+.fillout-field-date input[type="time"]:hover,
+.fillout-field-date input[type="datetime-local"]:hover {
+  border-color: #e5e5e5;
+}
+
+.fillout-field-date input[type="date"]:focus,
+.fillout-field-date input[type="time"]:focus,
+.fillout-field-date input[type="datetime-local"]:focus {
+  border-color: #d4d4d4;
+  box-shadow: none;
+  outline: 1px solid #d4d4d4;
+  outline-offset: -1px;
+}
+
+/* File Upload Fields */
+.fillout-field-file-upload input[type="file"] {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  color: #000000;
+}
+
+/* Spacing between fields */
+.fillout-field-container > * {
+  margin-bottom: 1rem; /* 16px spacing between fields */
+}
+
+.fillout-field-container > *:last-child {
+  margin-bottom: 0;
+}

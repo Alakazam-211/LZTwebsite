@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@import "../styles/geist.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --grid-color-light: rgba(0, 0, 0, 0.05);
+  --grid-color-dark: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -22,5 +25,279 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--geist-font-sans);
+  position: relative;
+}
+
+html {
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Vercel-style grid pattern - contained within content area */
+.grid-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(var(--grid-color-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color-light) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: 0 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--grid-opacity, 0.4);
+  transition: opacity 0.3s ease-out;
+}
+
+/* Grid origin indicator (+) */
+.grid-container::after {
+  content: '+';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--grid-color-light);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  font-weight: 300;
+  font-family: var(--geist-font-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  .grid-container::before {
+    background-image: 
+      linear-gradient(var(--grid-color-dark) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color-dark) 1px, transparent 1px);
+  }
+  
+  .grid-container::after {
+    color: var(--grid-color-dark);
+  }
+}
+
+.grid-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Scrolling logos animation - matching discover-nocode speed and spacing */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+}
+
+/* Grid wave effect - enhances grid visibility on hover */
+.grid-container::before {
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Glass star styles for testimonials */
+.glass-star {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 2px 8px 0 rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.03) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-star-filled {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(251, 191, 36, 0.4);
+  box-shadow: 
+    0 2px 8px 0 rgba(251, 191, 36, 0.15),
+    0 0 0 1px rgba(251, 191, 36, 0.1) inset;
+}
+
+.glass-star-empty {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-star:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 4px 12px 0 rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+/* Glass base styles */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+  border-radius: 2rem;
+}
+
+/* Glass avatar styles for overlapped avatars */
+.glass-avatar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 4px 16px 0 rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-avatar:hover:not(.selected) {
+  transform: scale(1.15);
+  z-index: 50 !important;
+  box-shadow: 
+    0 8px 24px 0 rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+}
+
+.glass-avatar.selected {
+  transform: scale(1);
+  box-shadow: 
+    0 4px 16px 0 rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.glass-avatar-fallback {
+  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+}
+
+/* Review bubble - fully opaque for readability */
+.review-bubble {
+  background: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+/* Fade in zoom animation for review bubble */
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Mobile optimizations for testimonial components */
+@media (max-width: 767px) {
+  /* Touch-friendly avatars */
+  .glass-avatar {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Optimize review bubble for mobile */
+  .review-bubble {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Reduce backdrop blur on mobile for better performance */
+  .glass-star,
+  .glass-avatar {
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+  }
+  
+  /* Prevent text selection on touch */
+  .glass-avatar {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Allow text selection in review bubble for copy/paste */
+  .review-bubble blockquote {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+/* Floating platform icons animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+.floating-platform {
+  animation: float 6s ease-in-out infinite;
+  position: absolute;
+  z-index: 10;
+}
+
+.floating-platform:nth-child(1) {
+  animation-delay: 0s;
+  animation-duration: 7s;
+}
+
+.floating-platform:nth-child(2) {
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+
+.floating-platform:nth-child(3) {
+  animation-delay: 2s;
+  animation-duration: 6.5s;
+}
+
+.floating-platform:nth-child(4) {
+  animation-delay: 1.5s;
+  animation-duration: 7.5s;
+}
+
+.floating-platform:nth-child(5) {
+  animation-delay: 0.5s;
+  animation-duration: 8.5s;
 }
