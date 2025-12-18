@@ -109,40 +109,6 @@
   --geist-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark Mode Variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Background Colors */
-    --geist-background-1: #000000;
-    --geist-background-2: #111111;
-    
-    /* Component Backgrounds */
-    --geist-color-1: #000000;
-    --geist-color-2: #111111;
-    --geist-color-3: #1a1a1a;
-    
-    /* Borders */
-    --geist-color-4: #333333;
-    --geist-color-5: #404040;
-    --geist-color-6: #525252;
-    
-    /* High Contrast Backgrounds */
-    --geist-color-7: #ffffff;
-    --geist-color-8: #f5f5f5;
-    
-    /* Text and Icons */
-    --geist-color-9: #888888;
-    --geist-color-10: #ffffff;
-    
-    /* Legacy variables */
-    --geist-background: #000000;
-    --geist-background-subtle: #111111;
-    --geist-foreground: #ffffff;
-    --geist-foreground-secondary: #888888;
-    --geist-border: #333333;
-    --geist-border-hover: #444444;
-  }
-}
 
 /* ============================================
    GEIST CARD

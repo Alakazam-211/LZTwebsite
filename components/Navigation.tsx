@@ -267,7 +267,7 @@ export default function Navigation({
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden py-4 space-y-1 overflow-hidden border-t border-gray-200 dark:border-gray-800"
+              className="md:hidden py-4 space-y-1 overflow-hidden border-t border-gray-200"
             >
               {/* Internal Links */}
               {links.filter(link => !link.external).map((item, index) => {
