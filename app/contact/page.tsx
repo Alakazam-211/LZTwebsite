@@ -98,7 +98,7 @@ export default function Contact() {
         {/* Newspaper Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
           {/* About LZTEK - Large article spanning 2 columns */}
-          <GeistCard className="p-6 md:col-span-2">
+          <GeistCard className="p-6 md:col-span-1 lg:col-span-2 order-2 md:order-1">
             <h2 className="text-heading-32 mb-4">About LZTEK</h2>
             <div className="space-y-3 text-copy-14">
               <p>
@@ -125,7 +125,7 @@ export default function Contact() {
           </GeistCard>
 
           {/* Contact Form - Right column */}
-          <GeistCard className="p-0">
+          <GeistCard className="p-0 order-1 md:order-2">
             <div className="p-6 pb-0">
               <h2 className="text-heading-24 mb-4">Send us a Message</h2>
             </div>
@@ -142,7 +142,7 @@ export default function Contact() {
           </GeistCard>
 
           {/* Mission and Culture - Full width, 50-50 split */}
-          <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-6 order-3">
             {/* Mission - Left 50% */}
             <GeistCard className="p-6">
               <h2 className="text-heading-24 mb-4">Our Mission</h2>
@@ -185,7 +185,7 @@ export default function Contact() {
           </div>
 
           {/* Values - Full width spanning 3 columns */}
-          <GeistCard className="p-6 col-span-full">
+          <GeistCard className="p-6 col-span-full order-4">
             <h2 className="text-heading-32 mb-6">Our Values</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div>
@@ -217,7 +217,7 @@ export default function Contact() {
           </GeistCard>
 
           {/* Team - Full width spanning 3 columns */}
-          <GeistCard className="p-6 col-span-full">
+          <GeistCard className="p-6 col-span-full order-5">
             <h2 className="text-heading-32 mb-6">Our Team</h2>
             
             {/* Active Employees */}

@@ -38,7 +38,7 @@ export default function RootLayout({
             { href: 'https://docs.lztek.io', label: 'Docs', external: true },
           ]}
         />
-        <main className="pt-16 min-h-screen">
+        <main className="min-h-screen">
           {children}
         </main>
         <Footer />

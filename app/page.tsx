@@ -116,9 +116,9 @@ export default function Home() {
     : 4.9;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-transparent">
       {/* Hero Section with Header and Subtitle */}
-      <section className="min-h-screen md:min-h-[90vh] flex items-center px-4 relative overflow-hidden pt-8 pb-16 md:pt-12">
+      <section className="min-h-screen md:min-h-[90vh] flex items-center px-0 md:px-4 relative overflow-hidden pb-16 bg-transparent">
         {/* Grid Wave Effect */}
         <GridWave />
         
@@ -128,11 +128,11 @@ export default function Home() {
             // Different positions for each platform - closer to center
             // Desktop positions: Vercel, Netlify, Supabase, Firebase, Capacitor
             const desktopPositions = [
-              { top: '20%', left: '20%', rotate: '12deg' }, // Vercel
-              { top: '25%', right: '25%', rotate: '-8deg' }, // Netlify
-              { top: '60%', left: '22%', rotate: '15deg' }, // Supabase - moved up to avoid company scroller
-              { top: '5%', left: '45%', rotate: '-5deg' }, // Firebase - moved up to avoid "Deployed" text
-              { top: '65%', right: '15%', rotate: '-12deg' }, // Capacitor - moved up on desktop
+              { top: '17%', left: '20%', rotate: '12deg' }, // Vercel - moved up 1%
+              { top: '30%', right: '25%', rotate: '-8deg' }, // Netlify - moved down 5%
+              { top: '50%', left: '22%', rotate: '15deg' }, // Supabase - moved up for condensed spacing
+              { top: '10%', left: '45%', rotate: '-5deg' }, // Firebase - moved down 5%
+              { top: '55%', right: '15%', rotate: '-12deg' }, // Capacitor - moved up for condensed spacing
             ];
             const desktopPos = desktopPositions[index] || desktopPositions[0];
             
@@ -140,10 +140,13 @@ export default function Home() {
             const animationDelays = [0, 1.2, 2.4, 0.8, 1.8]; // seconds
             const animationDurations = [6.5, 7.2, 6.8, 7.5, 6.3]; // seconds
             
+            // Check if this is Vercel (first platform)
+            const isVercel = index === 0;
+            
             return (
               <div
                 key={platform}
-                className="floating-platform group pointer-events-auto hidden md:block"
+                className={`floating-platform group pointer-events-auto hidden md:block ${isVercel ? 'floating-platform-vercel' : ''}`}
                 style={{
                   top: desktopPos.top,
                   left: desktopPos.left,
@@ -182,9 +185,9 @@ export default function Home() {
             const mobilePositions = [
               { top: '14%', left: '6%', rotate: '12deg' }, // Vercel - slightly randomized
               { top: '16%', right: '7%', rotate: '-8deg' }, // Netlify - slightly randomized
-              { top: '38%', left: '12%', rotate: '15deg' }, // Supabase - moved inward horizontally, slightly randomized
+              { top: '45%', left: '12%', rotate: '15deg' }, // Supabase - moved down on mobile
               { top: '3%', left: '48%', rotate: '-5deg' }, // Firebase - moved higher
-              { top: '42%', right: '11%', rotate: '-12deg' }, // Capacitor - moved inward horizontally, slightly randomized
+              { top: '52%', right: '11%', rotate: '-12deg' }, // Capacitor - moved down 10%
             ];
             const mobilePos = mobilePositions[index] || mobilePositions[0];
             
@@ -231,8 +234,8 @@ export default function Home() {
           })}
         </div>
 
-        <div className="container mx-auto max-w-7xl grid-container relative w-full z-20 -mt-8 md:-mt-12">
-          <div className="text-center mb-20 pt-8 md:pt-12">
+        <div className="container mx-auto max-w-7xl grid-container relative w-full z-20" style={{ paddingLeft: 0, paddingRight: 0, paddingTop: 0 }}>
+          <div className="text-center mb-20 pt-[138px] md:pt-[160px] px-4 md:px-6">
             <h1 className="text-heading-64 mb-8">
               Your Ideas, <span className="text-black">Deployed Everywhere</span>
             </h1>
@@ -275,22 +278,6 @@ export default function Home() {
               {!isLoadingRatings && testimonials.length > 0 && (
                 <OverlappedAvatars testimonials={testimonials} maxVisible={10} size="md" />
               )}
-            </div>
-          </div>
-
-          {/* Metrics Section */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-20">
-            <div className="text-center">
-              <div className="text-heading-48 font-bold mb-2">30+</div>
-              <div className="text-copy-14 text-gray-600">Projects Deployed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-heading-48 font-bold mb-2">24/7</div>
-              <div className="text-copy-14 text-gray-600">Support Available</div>
-            </div>
-            <div className="text-center">
-              <div className="text-heading-48 font-bold mb-2">Zero</div>
-              <div className="text-copy-14 text-gray-600">Downtime</div>
             </div>
           </div>
 

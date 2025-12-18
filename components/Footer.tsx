@@ -55,8 +55,8 @@ export default function Footer() {
             <h3 className="text-heading-16 mb-4 font-semibold">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/contact" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
-                  About Us
+                <Link href="/" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
+                  Home
                 </Link>
               </li>
               <li>
