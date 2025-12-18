@@ -64,7 +64,7 @@ export default function RainbowThreads() {
   const lastScrollY = useRef(0);
   const lastScrollTime = useRef(Date.now());
   const scrollDirectionRef = useRef<'up' | 'down' | null>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
 
   // Update dimensions on mount and resize
   useEffect(() => {

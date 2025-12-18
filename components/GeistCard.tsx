@@ -4,6 +4,7 @@ interface GeistCardProps {
   children: ReactNode;
   className?: string;
   variant?: 'default' | 'dark' | 'subtle';
+  style?: React.CSSProperties;
 }
 
 /**
@@ -24,6 +25,7 @@ export default function GeistCard({
   children,
   className = '',
   variant = 'default',
+  style,
 }: GeistCardProps) {
   const baseClasses = 'geist-outlined';
   
@@ -34,7 +36,7 @@ export default function GeistCard({
   };
   
   return (
-    <div className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
+    <div className={`${baseClasses} ${variantClasses[variant]} ${className}`} style={style}>
       {children}
     </div>
   );
