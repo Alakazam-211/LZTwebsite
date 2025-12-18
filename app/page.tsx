@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Header and Subtitle */}
-      <section className="min-h-screen md:min-h-[90vh] flex items-center px-4 relative overflow-hidden py-16">
+      <section className="min-h-screen md:min-h-[90vh] flex items-center px-4 relative overflow-hidden pt-8 pb-16 md:pt-12">
         {/* Grid Wave Effect */}
         <GridWave />
         
@@ -126,26 +126,32 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
           {allPlatforms.map((platform, index) => {
             // Different positions for each platform - closer to center
-            // Vercel, Netlify, Supabase, Firebase, Capacitor
-            const positions = [
+            // Desktop positions: Vercel, Netlify, Supabase, Firebase, Capacitor
+            const desktopPositions = [
               { top: '20%', left: '20%', rotate: '12deg' }, // Vercel
               { top: '25%', right: '25%', rotate: '-8deg' }, // Netlify
               { top: '60%', left: '22%', rotate: '15deg' }, // Supabase - moved up to avoid company scroller
-              { top: '10%', left: '45%', rotate: '-5deg' }, // Firebase - moved up higher, not behind clients
-              { top: '75%', right: '15%', rotate: '-12deg' }, // Capacitor - bottom right
+              { top: '5%', left: '45%', rotate: '-5deg' }, // Firebase - moved up to avoid "Deployed" text
+              { top: '65%', right: '15%', rotate: '-12deg' }, // Capacitor - moved up on desktop
             ];
-            const position = positions[index] || positions[0];
+            const desktopPos = desktopPositions[index] || desktopPositions[0];
+            
+            // Different animation delays and durations for each platform to make them bounce out of sync
+            const animationDelays = [0, 1.2, 2.4, 0.8, 1.8]; // seconds
+            const animationDurations = [6.5, 7.2, 6.8, 7.5, 6.3]; // seconds
             
             return (
               <div
                 key={platform}
-                className="floating-platform group pointer-events-auto"
+                className="floating-platform group pointer-events-auto hidden md:block"
                 style={{
-                  top: position.top,
-                  left: position.left,
-                  right: position.right,
-                  transform: `rotate(${position.rotate})`,
-                }}
+                  top: desktopPos.top,
+                  left: desktopPos.left,
+                  right: desktopPos.right,
+                  '--rotation': desktopPos.rotate,
+                  animationDelay: `${animationDelays[index]}s`,
+                  animationDuration: `${animationDurations[index]}s`,
+                } as React.CSSProperties & { '--rotation': string }}
               >
                 <img
                   src={platformFavicons[platform] || `https://${platform.toLowerCase()}.com/favicon.ico`}
@@ -171,10 +177,62 @@ export default function Home() {
               </div>
             );
           })}
+          {/* Mobile floating icons - smaller and positioned at edges */}
+          {allPlatforms.map((platform, index) => {
+            const mobilePositions = [
+              { top: '14%', left: '6%', rotate: '12deg' }, // Vercel - slightly randomized
+              { top: '16%', right: '7%', rotate: '-8deg' }, // Netlify - slightly randomized
+              { top: '38%', left: '12%', rotate: '15deg' }, // Supabase - moved inward horizontally, slightly randomized
+              { top: '3%', left: '48%', rotate: '-5deg' }, // Firebase - moved higher
+              { top: '42%', right: '11%', rotate: '-12deg' }, // Capacitor - moved inward horizontally, slightly randomized
+            ];
+            const mobilePos = mobilePositions[index] || mobilePositions[0];
+            
+            // Different animation delays and durations for each platform to make them bounce out of sync
+            const mobileAnimationDelays = [0.3, 1.5, 2.7, 1.1, 2.0]; // seconds - different from desktop
+            const mobileAnimationDurations = [6.2, 7.4, 6.9, 7.1, 6.6]; // seconds - different from desktop
+            
+            return (
+              <div
+                key={`${platform}-mobile`}
+                className="floating-platform group pointer-events-auto md:hidden"
+                style={{
+                  top: mobilePos.top,
+                  left: mobilePos.left,
+                  right: mobilePos.right,
+                  '--rotation': mobilePos.rotate,
+                  animationDelay: `${mobileAnimationDelays[index]}s`,
+                  animationDuration: `${mobileAnimationDurations[index]}s`,
+                } as React.CSSProperties & { '--rotation': string }}
+              >
+                <img
+                  src={platformFavicons[platform] || `https://${platform.toLowerCase()}.com/favicon.ico`}
+                  alt={platform}
+                  className="w-8 h-8 transition-all duration-300 group-hover:scale-125 group-hover:rotate-0 cursor-pointer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent && !parent.querySelector('.platform-fallback')) {
+                      const fallback = document.createElement('span');
+                      fallback.className = 'platform-fallback text-label-12 geist-outlined px-2 py-1';
+                      fallback.textContent = platform;
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
+                {/* Tooltip */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-label-12 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none whitespace-nowrap z-20">
+                  {platform}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        <div className="container mx-auto max-w-7xl grid-container relative w-full z-20">
-          <div className="text-center mb-20">
+        <div className="container mx-auto max-w-7xl grid-container relative w-full z-20 -mt-8 md:-mt-12">
+          <div className="text-center mb-20 pt-8 md:pt-12">
             <h1 className="text-heading-64 mb-8">
               Your Ideas, <span className="text-black">Deployed Everywhere</span>
             </h1>
@@ -231,8 +289,8 @@ export default function Home() {
               <div className="text-copy-14 text-gray-600">Support Available</div>
             </div>
             <div className="text-center">
-              <div className="text-heading-48 font-bold mb-2">99%</div>
-              <div className="text-copy-14 text-gray-600">Success Rate</div>
+              <div className="text-heading-48 font-bold mb-2">Zero</div>
+              <div className="text-copy-14 text-gray-600">Downtime</div>
             </div>
           </div>
 

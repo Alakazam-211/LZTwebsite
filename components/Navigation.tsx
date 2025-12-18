@@ -269,7 +269,8 @@ export default function Navigation({
               transition={{ duration: 0.2 }}
               className="md:hidden py-4 space-y-1 overflow-hidden border-t border-gray-200 dark:border-gray-800"
             >
-              {links.map((item, index) => {
+              {/* Internal Links */}
+              {links.filter(link => !link.external).map((item, index) => {
                 const active = isActive(item.href);
                 return (
                   <motion.div
@@ -294,7 +295,7 @@ export default function Navigation({
                 );
               })}
               
-              {/* Mobile External Links */}
+              {/* Mobile External Links - Only show once */}
               {links.filter(link => link.external).map((item, index) => (
                 <motion.div
                   key={item.href}
