@@ -107,6 +107,12 @@ export default function Footer() {
           <p className="text-copy-12 text-gray-500">
             © Copyright {currentYear} LZTEK, LLC. All rights reserved.
           </p>
+          <Link 
+            href="/_files/ugd/e86beb_0befdaea0e3c4487bbbef1875b5c0507.pdf" 
+            className="text-copy-12 text-gray-500 hover:text-black transition-colors"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

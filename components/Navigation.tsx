@@ -229,10 +229,18 @@ export default function Navigation({
                 setShowComingSoon(true);
                 setTimeout(() => setShowComingSoon(false), 3000);
               }}
-              className="px-4 py-2 text-sm font-medium min-h-[44px] flex items-center bg-black text-white hover:bg-gray-900"
+              className="px-4 py-2 text-sm font-medium min-h-[44px] flex items-center bg-white text-black border border-black hover:bg-gray-50 cursor-pointer"
+              style={{ color: '#000000', borderColor: '#000000' }}
             >
               Log in
             </button>
+            
+            {/* Get Started Button */}
+            <Link href="/get-started">
+              <button className="px-4 py-2 text-sm font-medium min-h-[44px] flex items-center bg-black text-white hover:bg-gray-900 cursor-pointer">
+                Get Started
+              </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -331,17 +339,23 @@ export default function Navigation({
               ))}
               
               {/* Mobile Log in Button */}
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-4 border-t border-gray-200 space-y-2">
                 <button
                   onClick={() => {
                     setIsOpen(false);
                     setShowComingSoon(true);
                     setTimeout(() => setShowComingSoon(false), 3000);
                   }}
-                  className="w-full px-4 py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-black text-white hover:bg-gray-900"
+                  className="w-full px-4 py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-white text-black border border-black hover:bg-gray-50 cursor-pointer"
+                  style={{ color: '#000000', borderColor: '#000000' }}
                 >
                   Log in
                 </button>
+                <Link href="/get-started" onClick={() => setIsOpen(false)} className="block">
+                  <button className="w-full px-4 py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-black text-white hover:bg-gray-900 cursor-pointer">
+                    Get Started
+                  </button>
+                </Link>
               </div>
               
               {cta && (

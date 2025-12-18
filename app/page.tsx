@@ -395,9 +395,11 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <GeistButton variant="primary" className="w-full mt-auto">
-                    Get Started
-                  </GeistButton>
+                  <Link href="/get-started">
+                    <GeistButton variant="primary" className="w-full mt-auto">
+                      Get Started
+                    </GeistButton>
+                  </Link>
                 </GeistCard>
               ))}
             </div>

@@ -1,9 +1,30 @@
 'use client';
 
-import Script from 'next/script';
+import { useEffect } from 'react';
 import GeistCard from '@/components/GeistCard';
 
 export default function Contact() {
+  // Load Fillout embed script (exact teachCast approach)
+  useEffect(() => {
+    // Check if script is already loaded
+    if (document.querySelector('script[src="https://server.fillout.com/embed/v1/"]')) {
+      return;
+    }
+
+    // Create and append script
+    const script = document.createElement('script');
+    script.src = 'https://server.fillout.com/embed/v1/';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Cleanup function
+    return () => {
+      const existingScript = document.querySelector('script[src="https://server.fillout.com/embed/v1/"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   // Active employees
   const activeEmployees = [
@@ -99,28 +120,40 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
           {/* About LZTEK - Large article spanning 2 columns */}
           <GeistCard className="p-6 md:col-span-1 lg:col-span-2 order-2 md:order-1">
-            <h2 className="text-heading-32 mb-4">About LZTEK</h2>
-            <div className="space-y-3 text-copy-14">
-              <p>
-                Hi! I&apos;m Rosson Long. Back in 2017, I noticed that managing big supply chains in China 
-                with little to no real-time data led to large costly mistakes.
-              </p>
-              <p>
-                I traveled to China and within 4 months using NoCode software, I built a solution 
-                that fixed the problems and gave each company the information transparency they needed 
-                to make effective decisions, saving them hundreds of thousands each year.
-              </p>
-              <p>
-                I recognize that finding the right business tool often gets in the way of what is important: 
-                Your business and the actionable information you need to run it. Skip the software hunt and 
-                create a bespoke solution that matches your needs. Build based on your business processes, 
-                identify your actionable information, and get a tailored solution.
-              </p>
-              <p>
-                Today, LZTEK specializes in hosting and deployment services, helping businesses 
-                deploy their applications to leading platforms and app stores. We bring the same 
-                dedication to quality and efficiency to every project.
-              </p>
+            <div className="flex flex-col md:flex-row gap-6">
+              {/* Left side - Title and description */}
+              <div className="flex-1">
+                <h2 className="text-heading-32 mb-4">About LZTEK</h2>
+                <div className="space-y-3 text-copy-14">
+                  <p>
+                    Hi! I&apos;m Rosson Long. Back in 2017, I noticed that managing big supply chains in China 
+                    with little to no real-time data led to large costly mistakes.
+                  </p>
+                  <p>
+                    I traveled to China and within 4 months using NoCode software, I built a solution 
+                    that fixed the problems and gave each company the information transparency they needed 
+                    to make effective decisions, saving them hundreds of thousands each year.
+                  </p>
+                  <p>
+                    Now with AI, building and deploying is faster than ever. We&apos;ve organized our services 
+                    to support hosting of all kinds of services, making it easier for businesses to get their 
+                    applications live quickly and reliably.
+                  </p>
+                  <p>
+                    Today, LZTEK specializes in hosting and deployment services, helping businesses 
+                    deploy their applications to leading platforms and app stores. We bring the same 
+                    dedication to quality and efficiency to every project.
+                  </p>
+                </div>
+              </div>
+              {/* Right side - Image */}
+              <div className="hidden lg:block flex-shrink-0 lg:w-[340px]">
+                <img 
+                  src="/assets/about-lztek.jpeg" 
+                  alt="About LZTEK" 
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </div>
           </GeistCard>
 
@@ -129,6 +162,7 @@ export default function Contact() {
             <div className="p-6 pb-0">
               <h2 className="text-heading-24 mb-4">Send us a Message</h2>
             </div>
+            {/* Fillout Form Embed - directly in JSX so it's always in DOM */}
             <div 
               style={{width:'100%',height:'500px'}} 
               data-fillout-id="v8C266sFx1us" 
@@ -136,15 +170,14 @@ export default function Contact() {
               data-fillout-inherit-parameters 
               data-fillout-dynamic-resize 
               data-fillout-domain="forms.discover-nocode.com"
-            ></div>
+            />
             <div className="p-6 pt-0"></div>
-            <Script src="https://server.fillout.com/embed/v1/" strategy="afterInteractive" />
           </GeistCard>
 
           {/* Mission and Culture - Full width, 50-50 split */}
           <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-6 order-3">
             {/* Mission - Left 50% */}
-            <GeistCard className="p-6">
+            <GeistCard className="p-6 flex flex-col h-full">
               <h2 className="text-heading-24 mb-4">Our Mission</h2>
               <div className="space-y-3 text-copy-14">
                 <p>
@@ -160,10 +193,17 @@ export default function Contact() {
                   that you can focus on what matters: your bottom line.
                 </p>
               </div>
+              <div className="mt-auto pt-6">
+                <img 
+                  src="/assets/airplane.png" 
+                  alt="Airplane taking off" 
+                  className="w-full h-48 object-cover"
+                />
+              </div>
             </GeistCard>
 
             {/* Culture - Right 50% */}
-            <GeistCard className="p-6">
+            <GeistCard className="p-6 flex flex-col h-full">
               <h2 className="text-heading-24 mb-4">Our Culture</h2>
               <div className="space-y-3 text-copy-14">
                 <p>
@@ -180,6 +220,13 @@ export default function Contact() {
                 <p className="italic text-copy-12">
                   &quot;If you want to go fast, go alone. If you want to go far, go together.&quot;
                 </p>
+              </div>
+              <div className="mt-auto pt-6">
+                <img 
+                  src="/assets/hand.jpg" 
+                  alt="Hand reaching out" 
+                  className="w-full h-48 object-cover"
+                />
               </div>
             </GeistCard>
           </div>
