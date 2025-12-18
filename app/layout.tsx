@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://lztek.io'),
   title: "LZTEK | Hosting Services",
   description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
   icons: {
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "LZTEK | Hosting Services",
     description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
+    url: 'https://lztek.io',
+    siteName: 'LZTEK',
     images: [
       {
         url: '/og-image.png',
@@ -33,6 +36,8 @@ export const metadata: Metadata = {
         alt: 'LZTEK Hosting Services',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
