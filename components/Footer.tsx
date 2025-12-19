@@ -8,10 +8,20 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gray-200 bg-white">
+      <style jsx>{`
+        footer a {
+          color: #000000 !important;
+          text-decoration: none !important;
+        }
+        footer a:hover {
+          color: #000000 !important;
+          text-decoration: underline !important;
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row gap-8 mb-8">
           {/* Company Info */}
-          <div className="flex-1">
+          <div className="max-w-xs">
             <Link href="/" className="inline-block mb-4">
               <div className="h-8 w-auto">
                 <Image
@@ -28,8 +38,11 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Spacer Column - Invisible */}
+          <div className="hidden md:block flex-1"></div>
+
           {/* Three Columns - Right Aligned */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 md:justify-end">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 md:justify-end">
             {/* Company */}
             <div>
               <h3 className="text-heading-16 mb-4 font-semibold text-black">Company</h3>
@@ -59,7 +72,7 @@ export default function Footer() {
                     className="text-copy-14 text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
-                    Alakazam
+                    Alakazam Labs
                   </a>
                 </li>
                 <li>
