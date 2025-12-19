@@ -171,7 +171,7 @@ export default function Footer() {
           </p>
           <Link 
             href="/_files/ugd/e86beb_0befdaea0e3c4487bbbef1875b5c0507.pdf" 
-            className="text-copy-12 text-black no-underline hover:underline transition-colors"
+            className="text-copy-12 text-black no-underline hover:underline"
             style={{ color: '#000000' }}
           >
             Privacy Policy
