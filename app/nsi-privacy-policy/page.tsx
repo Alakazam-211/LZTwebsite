@@ -1,138 +1,228 @@
 import type { Metadata } from "next";
+import parse from "html-react-parser";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | LZTEK",
-  description: "LZTEK Privacy Policy - Learn how we collect, use, and protect your personal information.",
+  description: "Privacy Policy - LZTEK",
 };
 
 export default function NsiPrivacyPolicy() {
+  const contentHtml = `<main class="PAGE_SECTIONSkvmw3 c1rIl3" data-main-content-parent="true" id="PAGE_SECTIONSkvmw3"><!--$--><section><div><div></div><div></div></div><div><!--$--><div><h1>Privacy Policy<br/>
+ <br/>
+Nelson Specialty Industrial, LLC<br/>
+Last updated: April 28, 2025<br/>
+ <br/>
+This Privacy Policy explains our policies and practices regarding the collection, use, and disclosure of your information when you use the services provided by Nelson Specialty Industrial, LLC (“the Company”). It also outlines your privacy rights and how applicable laws protect you.<br/>
+ <br/>
+We collect limited personal information necessary to operate and enhance our Service. By using our Service, you consent to the collection and use of information in accordance with this Privacy Policy.<br/>
+ <br/>
+ <br/>
+<strong>Interpretation and Definitions</strong><br/>
+ <br/>
+<strong>Interpretation</strong><br/>
+ <br/>
+Words with initial capital letters have defined meanings under the conditions described below. These definitions apply whether used in singular or plural form.<br/>
+ <br/>
+ <br/>
+Definitions<br/>
+ </h1>
+<ul>
+<li>
+<h1><strong>Account</strong>: A unique account created for you to access our Service.</h1>
+</li>
+<li>
+<h1><strong>Application</strong>: The software tool provided by Nelson Specialty Industrial, LLC.</h1>
+</li>
+<li>
+<h1><strong>Company</strong>: (Referred to as “the Company”, “We”, “Us”, or “Our”) means Nelson Specialty Industrial, LLC.</h1>
+</li>
+<li>
+<h1><strong>Country</strong>: Refers to the United States, specifically Utah.</h1>
+</li>
+<li>
+<h1><strong>Device</strong>: Any device used to access the Service, including computers, smartphones, or tablets.</h1>
+</li>
+<li>
+<h1><strong>Personal Data</strong>: Information related to an identified or identifiable individual.</h1>
+</li>
+<li>
+<h1><strong>Service</strong>: Refers to the Nelson Specialty Industrial mobile and/or web-based application.</h1>
+</li>
+<li>
+<h1><strong>Service Provider</strong>: Any individual or legal entity that processes data on behalf of the Company.</h1>
+</li>
+<li>
+<h1><strong>Usage Data</strong>: Data collected automatically during the use of the Service.</h1>
+</li>
+<li>
+<h1><strong>You</strong>: The individual using the Service, or the legal entity on behalf of which such individual is using the Service.</h1>
+</li>
+</ul>
+<h1> <br/>
+ <br/>
+<strong>Collection and Use of Your Personal Data</strong><br/>
+ <br/>
+<strong>Types of Data Collected</strong><br/>
+ <br/>
+<strong>Personal Data</strong><br/>
+ <br/>
+When using our Service, we collect limited personal information necessary for account creation and Service functionality, including:<br/>
+ </h1>
+<ul>
+<li>
+<h1><strong>Email Address</strong>: Collected through Google authentication for login and communication purposes only.</h1>
+</li>
+</ul>
+<h1> <br/>
+Note: We do not collect or store photos or site survey data directly within our application. All field submissions are uploaded directly to Quickbase, where they are managed by your company’s administration.<br/>
+ <br/>
+ <br/>
+<strong>Usage Data</strong><br/>
+ <br/>
+We may automatically collect Usage Data when you interact with our Service, including:<br/>
+ </h1>
+<ul>
+<li>
+<h1>IP address</h1>
+</li>
+<li>
+<h1>Browser type and version</h1>
+</li>
+<li>
+<h1>Pages accessed within the Service</h1>
+</li>
+<li>
+<h1>Time and date of access</h1>
+</li>
+<li>
+<h1>Time spent on each page</h1>
+</li>
+<li>
+<h1>Diagnostic information</h1>
+</li>
+</ul>
+<h1> <br/>
+This information is used to monitor, maintain, and enhance the functionality and security of the Service.<br/>
+ <br/>
+ <br/>
+<strong>Google Authentication Data</strong><br/>
+ <br/>
+When you log in via Google, we may access:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Your Google account’s email address (for authentication purposes only)</h1>
+</li>
+<li>
+<h1>Basic profile information (such as name, if accessible, though not stored)</h1>
+</li>
+</ul>
+<h1> <br/>
+You can manage Google login permissions through your Google account settings.<br/>
+ <br/>
+ <br/>
+<strong>Use of Your Personal Data</strong><br/>
+ <br/>
+The Company may use your personal information for the following purposes:<br/>
+ </h1>
+<ul>
+<li>
+<h1>To provide and maintain the Service: Authenticating your account and enabling secure access.</h1>
+</li>
+<li>
+<h1>To communicate with you: Sending essential Service notifications, updates, and support responses.</h1>
+</li>
+<li>
+<h1>For internal analysis and improvements: Using Usage Data to enhance performance, security, and user experience.</h1>
+</li>
+</ul>
+<h1> <br/>
+ <br/>
+<strong>Data Ownership and Responsibility</strong><br/>
+ <br/>
+The data submitted through the Nelson Specialty Industrial Application, including survey photos and site information, remains the property of your company. Your company is responsible for compliance with applicable data protection laws and informing employees regarding data practices.<br/>
+ <br/>
+ <br/>
+<strong>Employee Rights</strong><br/>
+ <br/>
+If you are an employee using the Service, you have the right to:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Access or correct your personal data (i.e., your email address).</h1>
+</li>
+<li>
+<h1>Request deletion of your personal data.</h1>
+</li>
+</ul>
+<h1> <br/>
+To exercise these rights, please contact your employer, who will coordinate with us if necessary.<br/>
+ <br/>
+ <br/>
+<strong>Data Access and Disclosure</strong><br/>
+ <br/>
+Nelson Specialty Industrial, LLC may access your Personal Data for:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Maintaining the functionality of the Service</h1>
+</li>
+<li>
+<h1>Providing technical support to your organization</h1>
+</li>
+<li>
+<h1>Improving app security and user experience</h1>
+</li>
+</ul>
+<h1> <br/>
+We do not store or retain any survey photos or job site data — this content is uploaded and managed directly through Quickbase by your employer.<br/>
+ <br/>
+Your data may be disclosed in the following circumstances:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Business transactions: In connection with a merger, acquisition, or asset sale.</h1>
+</li>
+<li>
+<h1>Legal compliance: If required by law or valid governmental requests.</h1>
+</li>
+</ul>
+<h1> <br/>
+ <br/>
+<strong>Data Retention</strong><br/>
+ <br/>
+We retain your personal data (email address) only as long as necessary to fulfill the purposes outlined in this Policy. Usage Data may be retained for internal analysis and Service improvement.<br/>
+ <br/>
+ <br/>
+<strong>Security of Your Data</strong><br/>
+ <br/>
+We prioritize the security of your personal information and apply commercially reasonable security measures. However, no electronic transmission or storage method can guarantee absolute security.<br/>
+ <br/>
+ <br/>
+<strong>Data Transfers</strong><br/>
+ <br/>
+Your information may be stored or processed on servers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. By using our Service, you consent to any such transfers.<br/>
+ <br/>
+ <br/>
+<strong>Changes to this Privacy Policy</strong><br/>
+ <br/>
+We may update this Privacy Policy periodically. Changes will be communicated via email or by posting a notice within the Service. The updated version will include a revised “Last Updated” date.<br/>
+ <br/>
+ <br/>
+<strong>Contact Us</strong><br/>
+ <br/>
+If you have any questions about this Privacy Policy, please contact us:<br/>
+<br/>
+Email: support@lztek.io</h1></div><!--/$--></div></section><!--/$--></main>`;
+  
   return (
     <div className="min-h-screen py-16 px-4">
       <div className="container mx-auto max-w-4xl">
-        <h1 className="text-heading-48 mb-8">Privacy Policy</h1>
-        
-        <div className="prose prose-lg max-w-none space-y-6 text-copy-14">
-          <section>
-            <h2 className="text-heading-24 mb-4">Introduction</h2>
-            <p>
-              LZTEK, LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. 
-              This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you 
-              visit our website or use our services.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Information We Collect</h2>
-            <p>We may collect information about you in a variety of ways. The information we may collect includes:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Personal data such as name, email address, phone number, and mailing address</li>
-              <li>Usage data including information about how you access and use our website</li>
-              <li>Device information such as IP address, browser type, and operating system</li>
-              <li>Cookies and tracking technologies</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Provide, maintain, and improve our services</li>
-              <li>Process your transactions and send related information</li>
-              <li>Send you technical notices and support messages</li>
-              <li>Respond to your comments and questions</li>
-              <li>Monitor and analyze trends and usage</li>
-              <li>Detect, prevent, and address technical issues</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Information Sharing and Disclosure</h2>
-            <p>
-              We do not sell, trade, or rent your personal information to third parties. We may share your information 
-              only in the following circumstances:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>With your consent</li>
-              <li>To comply with legal obligations</li>
-              <li>To protect our rights and safety</li>
-              <li>With service providers who assist us in operating our website and conducting our business</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Data Security</h2>
-            <p>
-              We implement appropriate technical and organizational security measures to protect your personal information. 
-              However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot 
-              guarantee absolute security.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Your Rights</h2>
-            <p>You have the right to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Access and receive a copy of your personal data</li>
-              <li>Rectify inaccurate or incomplete data</li>
-              <li>Request deletion of your personal data</li>
-              <li>Object to processing of your personal data</li>
-              <li>Request restriction of processing</li>
-              <li>Data portability</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Cookies</h2>
-            <p>
-              We use cookies and similar tracking technologies to track activity on our website and store certain 
-              information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Third-Party Links</h2>
-            <p>
-              Our website may contain links to third-party websites. We are not responsible for the privacy practices 
-              of these external sites. We encourage you to review the privacy policies of any third-party sites you visit.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Children&apos;s Privacy</h2>
-            <p>
-              Our services are not intended for individuals under the age of 18. We do not knowingly collect personal 
-              information from children under 18. If you become aware that a child has provided us with personal 
-              information, please contact us.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Changes to This Privacy Policy</h2>
-            <p>
-              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new 
-              Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Contact Us</h2>
-            <p>
-              If you have any questions about this Privacy Policy, please contact us at:
-            </p>
-            <p className="mt-2">
-              <strong>LZTEK, LLC</strong><br />
-              Email: <a href="mailto:inquiry@lztek.io" className="text-blue-600 hover:underline">inquiry@lztek.io</a><br />
-              Website: <a href="https://www.lztek.io" className="text-blue-600 hover:underline">www.lztek.io</a>
-            </p>
-          </section>
-
-          <section className="pt-4 border-t">
-            <p className="text-copy-12 text-gray-500">
-              Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
-          </section>
+        <div className="prose prose-lg max-w-none space-y-6">
+          {parse(contentHtml)}
         </div>
       </div>
     </div>
   );
 }
+

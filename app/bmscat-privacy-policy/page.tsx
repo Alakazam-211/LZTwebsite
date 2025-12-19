@@ -1,138 +1,230 @@
 import type { Metadata } from "next";
+import parse from "html-react-parser";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | LZTEK",
-  description: "LZTEK Privacy Policy - Learn how we collect, use, and protect your personal information.",
+  description: "Privacy Policy - LZTEK",
 };
 
 export default function BmscatPrivacyPolicy() {
+  const contentHtml = `<main class="PAGE_SECTIONSnzjje c1rIl3" data-main-content-parent="true" id="PAGE_SECTIONSnzjje"><!--$--><section><div><div></div><div></div></div><div><!--$--><div><h1>Privacy Policy<br/>
+ <br/>
+BMS CAT, LLC<br/>
+Last updated: Jun 10, 2025<br/>
+ <br/>
+This Privacy Policy outlines the policies and practices of BMS CAT, LLC (“the Company”, “We”, “Us”, or “Our”) regarding the collection, use, and disclosure of personal information when you use our services. It also describes your privacy rights and how applicable laws protect you.<br/>
+ <br/>
+We collect limited personal data necessary to operate and improve our Service. By using our Service, you consent to the collection and use of information as described in this Privacy Policy.<br/>
+ <br/>
+ <br/>
+Interpretation and Definitions<br/>
+ <br/>
+Interpretation<br/>
+ <br/>
+Words with capitalized initials have specific meanings defined below. These definitions apply whether used in singular or plural form.<br/>
+ <br/>
+ <br/>
+Definitions<br/>
+ <br/>
+ </h1>
+<ul>
+<li>
+<h1><strong>Account</strong>: A unique account created for you to access our Service.</h1>
+</li>
+<li>
+<h1><strong>Application</strong>: The software tool provided by BMS CAT, LLC for surveying job sites and submitting information.</h1>
+</li>
+<li>
+<h1><strong>Company</strong>: Refers to BMS CAT, LLC.</h1>
+</li>
+<li>
+<h1><strong>Country</strong>: Refers to the United States, specifically Utah.</h1>
+</li>
+<li>
+<h1><strong>Device</strong>: Any device that can access the Service, including smartphones, tablets, or computers.</h1>
+</li>
+<li>
+<h1><strong>Personal Data</strong>: Any information relating to an identified or identifiable individual.</h1>
+</li>
+<li>
+<h1><strong>Service</strong>: The BMS CAT mobile and/or web-based application.</h1>
+</li>
+<li>
+<h1><strong>Service</strong> <strong>Provider</strong>: Any natural or legal person processing data on behalf of the Company.</h1>
+</li>
+<li>
+<h1><strong>Usage<strong> </strong>Data</strong>: Data collected automatically during use of the Service.</h1>
+</li>
+<li>
+<h1><strong>You</strong>: The individual accessing or using the Service, or the organization on whose behalf such individual is accessing or using the Service.</h1>
+</li>
+</ul>
+<h1> <br/>
+ <br/>
+<strong>Collection and Use of Your Personal Data</strong><br/>
+ <br/>
+<strong>Types of Data Collected</strong><br/>
+ <br/>
+<strong>Personal Data</strong><br/>
+ <br/>
+We collect limited personal information necessary to create and maintain your user account:<br/>
+ <br/>
+ </h1>
+<ul>
+<li>
+<h1><strong>Email Address</strong>: Collected via Google authentication. Used solely for login and communication.</h1>
+</li>
+</ul>
+<h1> <br/>
+Note: We do not store or manage any photos or site survey data. All field submissions are uploaded directly to Quickbase, where they are managed by your company’s administrative team.<br/>
+ <br/>
+ <br/>
+<strong>Usage Data</strong><br/>
+ <br/>
+We may automatically collect certain information when you use the Service, including:<br/>
+ </h1>
+<ul>
+<li>
+<h1>IP address</h1>
+</li>
+<li>
+<h1>Browser type and version</h1>
+</li>
+<li>
+<h1>Pages accessed within the Service</h1>
+</li>
+<li>
+<h1>Dates and times of access</h1>
+</li>
+<li>
+<h1>Duration spent on pages</h1>
+</li>
+<li>
+<h1>Diagnostic data</h1>
+</li>
+</ul>
+<h1> <br/>
+This information helps improve the functionality, performance, and security of our Service.<br/>
+ <br/>
+ <br/>
+<strong>Google Authentication Data</strong><br/>
+ <br/>
+When you log in with your Google account, we may access:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Your Google account’s email address (for authentication only)</h1>
+</li>
+<li>
+<h1>Basic profile information such as your name (if available, though not stored)</h1>
+</li>
+</ul>
+<h1> <br/>
+You can manage Google login permissions via your Google account settings.<br/>
+ <br/>
+ <br/>
+<strong>Use of Your Personal Data</strong><br/>
+ <br/>
+We may use your Personal Data for the following purposes:<br/>
+ </h1>
+<ul>
+<li>
+<h1>To provide and maintain the Service: Including account authentication and login support.</h1>
+</li>
+<li>
+<h1>To communicate with you: Regarding updates, technical issues, or support responses.</h1>
+</li>
+<li>
+<h1>For internal improvements: Analyzing Usage Data to enhance performance and security.</h1>
+</li>
+</ul>
+<h1> <br/>
+ <br/>
+<strong>Data Ownership and Responsibility</strong><br/>
+ <br/>
+All data submitted through the BMS CAT application, including site photos and survey information, remains the property of your company. Your employer is responsible for compliance with all applicable data privacy laws and for communicating data handling practices to employees.<br/>
+ <br/>
+ <br/>
+<strong>Employee Rights</strong><br/>
+ <br/>
+If you are an employee using the Service, you have the right to:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Access or correct your account-related personal data (e.g., your email address)</h1>
+</li>
+<li>
+<h1>Request deletion of your personal data</h1>
+</li>
+</ul>
+<h1> <br/>
+Please contact your employer to exercise these rights. They will coordinate with us as needed.<br/>
+ <br/>
+ <br/>
+<strong>Data Access and Disclosure</strong><br/>
+ <br/>
+BMS CAT, LLC may access personal data (such as your email and usage information) in order to:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Maintain Service functionality</h1>
+</li>
+<li>
+<h1>Provide technical support</h1>
+</li>
+<li>
+<h1>Improve app security and performance</h1>
+</li>
+</ul>
+<h1> <br/>
+We do not store or access job site photos or field data, which are uploaded and managed through Quickbase by your employer.<br/>
+ <br/>
+Your data may be disclosed in the following situations:<br/>
+ </h1>
+<ul>
+<li>
+<h1>Business transactions: If the Company is involved in a merger, acquisition, or sale of assets.</h1>
+</li>
+<li>
+<h1>Legal compliance: If required to comply with legal obligations or law enforcement requests.</h1>
+</li>
+</ul>
+<h1> <br/>
+ <br/>
+<strong>Data Retention</strong><br/>
+ <br/>
+We retain personal data (email address) only for as long as necessary to fulfill the purposes outlined in this Policy. Usage Data may be retained for internal analysis and Service improvement.<br/>
+ <br/>
+ <br/>
+<strong>Security of Your Data</strong><br/>
+ <br/>
+We take reasonable measures to protect your Personal Data. However, no method of electronic transmission or storage is completely secure. While we strive to use best practices, we cannot guarantee absolute security.<br/>
+ <br/>
+ <br/>
+<strong>Data Transfers</strong><br/>
+ <br/>
+Your data may be processed or stored on servers located outside your state or country, where data protection laws may vary. By using the Service, you consent to such data transfers.<br/>
+ <br/>
+ <br/>
+<strong>Changes to This Privacy Policy</strong><br/>
+ <br/>
+This Privacy Policy may be updated periodically. If changes are made, we will notify you via email or through a notice in the app. The revised date will be reflected at the top of this page.<br/>
+ <br/>
+ <br/>
+<strong>Contact Us</strong><br/>
+ <br/>
+If you have any questions about this Privacy Policy, please contact:<br/>
+ <br/>
+Email: support@lztek.io</h1></div><!--/$--></div></section><!--/$--></main>`;
+  
   return (
     <div className="min-h-screen py-16 px-4">
       <div className="container mx-auto max-w-4xl">
-        <h1 className="text-heading-48 mb-8">Privacy Policy</h1>
-        
-        <div className="prose prose-lg max-w-none space-y-6 text-copy-14">
-          <section>
-            <h2 className="text-heading-24 mb-4">Introduction</h2>
-            <p>
-              LZTEK, LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. 
-              This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you 
-              visit our website or use our services.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Information We Collect</h2>
-            <p>We may collect information about you in a variety of ways. The information we may collect includes:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Personal data such as name, email address, phone number, and mailing address</li>
-              <li>Usage data including information about how you access and use our website</li>
-              <li>Device information such as IP address, browser type, and operating system</li>
-              <li>Cookies and tracking technologies</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Provide, maintain, and improve our services</li>
-              <li>Process your transactions and send related information</li>
-              <li>Send you technical notices and support messages</li>
-              <li>Respond to your comments and questions</li>
-              <li>Monitor and analyze trends and usage</li>
-              <li>Detect, prevent, and address technical issues</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Information Sharing and Disclosure</h2>
-            <p>
-              We do not sell, trade, or rent your personal information to third parties. We may share your information 
-              only in the following circumstances:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>With your consent</li>
-              <li>To comply with legal obligations</li>
-              <li>To protect our rights and safety</li>
-              <li>With service providers who assist us in operating our website and conducting our business</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Data Security</h2>
-            <p>
-              We implement appropriate technical and organizational security measures to protect your personal information. 
-              However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot 
-              guarantee absolute security.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Your Rights</h2>
-            <p>You have the right to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Access and receive a copy of your personal data</li>
-              <li>Rectify inaccurate or incomplete data</li>
-              <li>Request deletion of your personal data</li>
-              <li>Object to processing of your personal data</li>
-              <li>Request restriction of processing</li>
-              <li>Data portability</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Cookies</h2>
-            <p>
-              We use cookies and similar tracking technologies to track activity on our website and store certain 
-              information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Third-Party Links</h2>
-            <p>
-              Our website may contain links to third-party websites. We are not responsible for the privacy practices 
-              of these external sites. We encourage you to review the privacy policies of any third-party sites you visit.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Children&apos;s Privacy</h2>
-            <p>
-              Our services are not intended for individuals under the age of 18. We do not knowingly collect personal 
-              information from children under 18. If you become aware that a child has provided us with personal 
-              information, please contact us.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Changes to This Privacy Policy</h2>
-            <p>
-              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new 
-              Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-heading-24 mb-4">Contact Us</h2>
-            <p>
-              If you have any questions about this Privacy Policy, please contact us at:
-            </p>
-            <p className="mt-2">
-              <strong>LZTEK, LLC</strong><br />
-              Email: <a href="mailto:inquiry@lztek.io" className="text-blue-600 hover:underline">inquiry@lztek.io</a><br />
-              Website: <a href="https://www.lztek.io" className="text-blue-600 hover:underline">www.lztek.io</a>
-            </p>
-          </section>
-
-          <section className="pt-4 border-t">
-            <p className="text-copy-12 text-gray-500">
-              Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
-          </section>
+        <div className="prose prose-lg max-w-none space-y-6">
+          {parse(contentHtml)}
         </div>
       </div>
     </div>
   );
 }
+
