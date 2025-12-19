@@ -19,8 +19,11 @@ export const metadata: Metadata = {
   title: "LZTEK | Hosting Services",
   description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
   icons: {
-    icon: '/favicon.jpg',
-    shortcut: '/favicon.jpg',
+    icon: [
+      { url: '/favicon.jpg', type: 'image/jpeg' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.ico',
     apple: '/favicon.jpg',
   },
   openGraph: {
