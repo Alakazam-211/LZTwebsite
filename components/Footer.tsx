@@ -29,77 +29,20 @@ export default function Footer() {
           </div>
 
           {/* Three Columns - Right Aligned */}
-          <div className="flex flex-col md:flex-row gap-8 md:justify-end">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 md:justify-end">
             {/* Company */}
             <div>
               <h3 className="text-heading-16 mb-4 font-semibold text-black">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/" className="text-copy-14 text-black hover:underline">
+                  <Link href="/" className="text-copy-14 text-black no-underline hover:underline" style={{ color: '#000000' }}>
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-copy-14 text-black hover:underline">
+                  <Link href="/contact" className="text-copy-14 text-black no-underline hover:underline" style={{ color: '#000000' }}>
                     Contact
                   </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Platforms */}
-            <div>
-              <h3 className="text-heading-16 mb-4 font-semibold text-black">Platforms</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a 
-                    href="https://vercel.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
-                  >
-                    Vercel
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://www.netlify.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
-                  >
-                    Netlify
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://supabase.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
-                  >
-                    Supabase
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://firebase.google.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
-                  >
-                    Firebase
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://capacitorjs.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
-                  >
-                    Capacitor
-                  </a>
                 </li>
               </ul>
             </div>
@@ -113,7 +56,8 @@ export default function Footer() {
                     href="https://alakazamlabs.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
                   >
                     Alakazam
                   </a>
@@ -123,7 +67,8 @@ export default function Footer() {
                     href="https://discover-nocode.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
                   >
                     Discover NoCode
                   </a>
@@ -133,9 +78,72 @@ export default function Footer() {
                     href="https://docs.lztek.io" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black hover:underline"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
                   >
                     Documentation
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Platforms */}
+            <div>
+              <h3 className="text-heading-16 mb-4 font-semibold text-black">Platforms</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a 
+                    href="https://vercel.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
+                  >
+                    Vercel
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://www.netlify.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
+                  >
+                    Netlify
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://supabase.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
+                  >
+                    Supabase
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://firebase.google.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
+                  >
+                    Firebase
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://capacitorjs.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black no-underline hover:underline"
+                    style={{ color: '#000000' }}
+                  >
+                    Capacitor
                   </a>
                 </li>
               </ul>
@@ -150,7 +158,8 @@ export default function Footer() {
           </p>
           <Link 
             href="/_files/ugd/e86beb_0befdaea0e3c4487bbbef1875b5c0507.pdf" 
-            className="text-copy-12 text-black hover:underline transition-colors"
+            className="text-copy-12 text-black no-underline hover:underline transition-colors"
+            style={{ color: '#000000' }}
           >
             Privacy Policy
           </Link>
