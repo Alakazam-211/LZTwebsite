@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="hidden md:block flex-1"></div>
 
           {/* Three Columns - Right Aligned */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 md:justify-end">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-[74px] md:justify-end">
             {/* Company */}
             <div>
               <h3 className="text-heading-16 mb-4 font-semibold text-black">Company</h3>
