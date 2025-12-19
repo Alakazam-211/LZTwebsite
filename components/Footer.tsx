@@ -8,12 +8,16 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gray-200 bg-white">
-      <style jsx>{`
-        footer a {
+      <style jsx global>{`
+        footer a,
+        footer a:link,
+        footer a:visited {
           color: #000000 !important;
           text-decoration: none !important;
         }
-        footer a:hover {
+        footer a:hover,
+        footer a:focus,
+        footer a:active {
           color: #000000 !important;
           text-decoration: underline !important;
         }
