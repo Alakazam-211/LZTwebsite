@@ -28,61 +28,33 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-heading-16 mb-4 font-semibold">Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
-                  Hosting
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Company */}
           <div>
             <h3 className="text-heading-16 mb-4 font-semibold">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
+                <Link href="/" className="text-copy-14 text-black hover:underline">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
+                <Link href="/contact" className="text-copy-14 text-black hover:underline">
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Platforms */}
           <div>
-            <h3 className="text-heading-16 mb-4 font-semibold">Resources</h3>
+            <h3 className="text-heading-16 mb-4 font-semibold">Platforms</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/docs" className="text-copy-14 text-black hover:text-black" style={{ color: '#000000' }}>
-                  Documentation
-                </Link>
-              </li>
               <li>
                 <a 
                   href="https://vercel.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:text-black"
-                  style={{ color: '#000000' }}
+                  className="text-copy-14 text-black hover:underline"
                 >
                   Vercel
                 </a>
@@ -92,10 +64,66 @@ export default function Footer() {
                   href="https://www.netlify.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:text-black"
-                  style={{ color: '#000000' }}
+                  className="text-copy-14 text-black hover:underline"
                 >
                   Netlify
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://supabase.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-copy-14 text-black hover:underline"
+                >
+                  Supabase
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://firebase.google.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-copy-14 text-black hover:underline"
+                >
+                  Firebase
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://capacitorjs.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-copy-14 text-black hover:underline"
+                >
+                  Capacitor
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-heading-16 mb-4 font-semibold">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href="https://alakazamlabs.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-copy-14 text-black hover:underline"
+                >
+                  Alakazam
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://discover-nocode.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-copy-14 text-black hover:underline"
+                >
+                  Discover NoCode
                 </a>
               </li>
             </ul>
@@ -109,7 +137,7 @@ export default function Footer() {
           </p>
           <Link 
             href="/_files/ugd/e86beb_0befdaea0e3c4487bbbef1875b5c0507.pdf" 
-            className="text-copy-12 text-gray-500 hover:text-black transition-colors"
+            className="text-copy-12 text-black hover:underline transition-colors"
           >
             Privacy Policy
           </Link>
