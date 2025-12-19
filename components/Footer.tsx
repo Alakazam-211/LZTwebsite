@@ -9,9 +9,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="flex flex-col md:flex-row gap-8 mb-8">
           {/* Company Info */}
-          <div className="md:col-span-1">
+          <div className="flex-1">
             <Link href="/" className="inline-block mb-4">
               <div className="h-8 w-auto">
                 <Image
@@ -23,116 +23,129 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-copy-14 text-gray-600">
+            <p className="text-copy-14 text-black">
               Professional hosting services for web and mobile applications.
             </p>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-heading-16 mb-4 font-semibold">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-copy-14 text-black hover:underline">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-copy-14 text-black hover:underline">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Three Columns - Right Aligned */}
+          <div className="flex flex-col md:flex-row gap-8 md:justify-end">
+            {/* Company */}
+            <div>
+              <h3 className="text-heading-16 mb-4 font-semibold text-black">Company</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/" className="text-copy-14 text-black hover:underline">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-copy-14 text-black hover:underline">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Platforms */}
-          <div>
-            <h3 className="text-heading-16 mb-4 font-semibold">Platforms</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="https://vercel.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Vercel
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.netlify.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Netlify
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://supabase.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Supabase
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://firebase.google.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Firebase
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://capacitorjs.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Capacitor
-                </a>
-              </li>
-            </ul>
-          </div>
+            {/* Platforms */}
+            <div>
+              <h3 className="text-heading-16 mb-4 font-semibold text-black">Platforms</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a 
+                    href="https://vercel.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Vercel
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://www.netlify.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Netlify
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://supabase.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Supabase
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://firebase.google.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Firebase
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://capacitorjs.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Capacitor
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          {/* Resources */}
-          <div>
-            <h3 className="text-heading-16 mb-4 font-semibold">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="https://alakazamlabs.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Alakazam
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://discover-nocode.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-copy-14 text-black hover:underline"
-                >
-                  Discover NoCode
-                </a>
-              </li>
-            </ul>
+            {/* Resources */}
+            <div>
+              <h3 className="text-heading-16 mb-4 font-semibold text-black">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a 
+                    href="https://alakazamlabs.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Alakazam
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://discover-nocode.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Discover NoCode
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://docs.lztek.io" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-copy-14 text-black hover:underline"
+                  >
+                    Documentation
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-copy-12 text-gray-500">
+          <p className="text-copy-12 text-black">
             © Copyright {currentYear} LZTEK, LLC. All rights reserved.
           </p>
           <Link 
