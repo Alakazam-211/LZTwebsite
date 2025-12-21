@@ -86,7 +86,7 @@ export default function RootLayout({
             { href: 'https://docs.lztek.io', label: 'Docs', external: true },
           ]}
         />
-        <main className="min-h-screen pt-16 safe-area-top">
+        <main className="pt-16 safe-area-top">
           {children}
         </main>
         <Footer />

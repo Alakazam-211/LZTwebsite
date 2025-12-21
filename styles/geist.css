@@ -227,7 +227,8 @@
   overscroll-behavior: none;
 }
 
-.geist-nav-scrolled {
+.geist-nav.geist-nav-scrolled,
+.geist-nav.geist-nav-dark.geist-nav-scrolled {
   background: #ffffff !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -237,6 +238,14 @@
   border-bottom-style: solid !important;
   /* Ensure border is visible on all devices with shadow fallback */
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Force solid background on scrolled navbar - highest specificity */
+nav.geist-nav.geist-nav-scrolled,
+nav.geist-nav.geist-nav-dark.geist-nav-scrolled {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .geist-nav-dark {
@@ -737,12 +746,13 @@ a:hover {
   }
   
   /* Ensure navbar scrolled state works on mobile */
-  .geist-nav-scrolled {
+  .geist-nav.geist-nav-scrolled,
+  nav.geist-nav.geist-nav-scrolled {
     background: #ffffff !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border-bottom: 1px solid var(--geist-border) !important;
-    box-shadow: 0 1px 0 0 var(--geist-border) !important;
+    border-bottom: 1px solid #eaeaea !important;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08) !important;
   }
 }
 
@@ -750,13 +760,9 @@ a:hover {
    iOS SAFARI SPECIFIC OPTIMIZATIONS
    ============================================ */
 
-/* Fix iOS Safari 100vh issue */
+/* Fix iOS Safari 100vh issue - only apply to specific containers, not html/body/main */
 @supports (-webkit-touch-callout: none) {
-  html,
-  body,
-  main {
-    height: -webkit-fill-available;
-  }
+  /* Don't apply to html/body/main as it breaks layout */
 }
 
 /* iOS Safari input zoom prevention */
@@ -831,12 +837,13 @@ a:hover {
   }
   
   /* Ensure navbar scrolled state works on iOS Safari */
-  .geist-nav-scrolled {
+  .geist-nav.geist-nav-scrolled,
+  nav.geist-nav.geist-nav-scrolled {
     background: #ffffff !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom: 1px solid #eaeaea !important;
-    box-shadow: 0 1px 0 0 #eaeaea !important;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08) !important;
   }
 }
 

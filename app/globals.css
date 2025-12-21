@@ -31,8 +31,6 @@ body {
   color: var(--foreground);
   font-family: var(--geist-font-sans);
   position: relative;
-  /* Fix iOS Safari 100vh issue */
-  min-height: -webkit-fill-available;
   /* Prevent text selection on tap (iOS) */
   -webkit-tap-highlight-color: transparent;
   /* Smooth scrolling */
@@ -43,13 +41,19 @@ main {
   position: relative;
   z-index: 1;
   background: transparent;
-  /* Fix iOS Safari 100vh issue */
-  min-height: -webkit-fill-available;
 }
 
 /* iOS Safari safe area top padding - accounts for navbar (4rem) + safe area */
+/* Only apply safe area padding if it exists (not on all devices) */
 .safe-area-top {
-  padding-top: calc(4rem + env(safe-area-inset-top));
+  padding-top: 4rem;
+}
+
+/* Only add safe area padding on devices that support it */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-area-top {
+    padding-top: calc(4rem + env(safe-area-inset-top));
+  }
 }
 
 /* Fallback for older iOS versions */
