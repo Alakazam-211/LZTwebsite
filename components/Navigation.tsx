@@ -61,16 +61,22 @@ export default function Navigation({
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 0);
+          // Use a small threshold to ensure it triggers reliably on iOS
+          setScrolled(window.scrollY > 1);
           ticking = false;
         });
         ticking = true;
       }
     };
+    // Use both scroll and touchmove for better iOS support
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleScroll, { passive: true });
     // Check initial scroll position
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
+    };
   }, []);
 
   const isActive = (href: string) => {

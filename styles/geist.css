@@ -228,10 +228,15 @@
 }
 
 .geist-nav-scrolled {
-  background: var(--geist-background);
-  border-bottom-width: 1px;
-  border-bottom-color: var(--geist-border);
-  border-bottom-style: solid;
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid #eaeaea !important;
+  border-bottom-width: 1px !important;
+  border-bottom-color: #eaeaea !important;
+  border-bottom-style: solid !important;
+  /* Ensure border is visible on all devices with shadow fallback */
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08) !important;
 }
 
 .geist-nav-dark {
@@ -730,6 +735,15 @@ a:hover {
   .geist-button {
     width: 100%;
   }
+  
+  /* Ensure navbar scrolled state works on mobile */
+  .geist-nav-scrolled {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid var(--geist-border) !important;
+    box-shadow: 0 1px 0 0 var(--geist-border) !important;
+  }
 }
 
 /* ============================================
@@ -814,6 +828,15 @@ a:hover {
   
   body {
     overscroll-behavior-y: contain;
+  }
+  
+  /* Ensure navbar scrolled state works on iOS Safari */
+  .geist-nav-scrolled {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid #eaeaea !important;
+    box-shadow: 0 1px 0 0 #eaeaea !important;
   }
 }
 
