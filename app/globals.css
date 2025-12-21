@@ -125,25 +125,14 @@ main {
   z-index: 10;
 }
 
-/* Scrolling logos animation - matching discover-nocode speed and spacing */
+/* Scrolling logos animation - duration and distance are calculated dynamically based on logo widths */
+/* The actual keyframes are injected dynamically via JavaScript, this is a fallback */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 30s linear infinite;
-  display: flex;
-}
-
-/* Faster scroll animation on mobile */
-@media (max-width: 767px) {
-  .animate-scroll {
-    animation: scroll 11.25s linear infinite;
   }
 }
 

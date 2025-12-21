@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import GeistCard from '@/components/GeistCard';
@@ -91,6 +91,9 @@ interface Testimonial {
 export default function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isLoadingRatings, setIsLoadingRatings] = useState(true);
+  const [scrollDuration, setScrollDuration] = useState<number>(30); // Default fallback
+  const [scrollDistance, setScrollDistance] = useState<number>(0); // Distance to scroll in pixels
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -108,6 +111,159 @@ export default function Home() {
     };
 
     fetchTestimonials();
+  }, []);
+
+  // Calculate scroll animation duration based on actual logo widths
+  useEffect(() => {
+    const calculateScrollDuration = () => {
+      if (!scrollContainerRef.current) return;
+
+      const container = scrollContainerRef.current;
+      const viewportWidth = window.innerWidth;
+      
+      // Measure the actual width of each logo element (including gaps)
+      // We only need to measure the first set since they're duplicated
+      const children = Array.from(container.children) as HTMLElement[];
+      const firstSetChildren = children.slice(0, companyLogos.length);
+      
+      // Sum up the actual rendered widths of all logos in one set
+      let totalScrollDistance = 0;
+      firstSetChildren.forEach((child, index) => {
+        const rect = child.getBoundingClientRect();
+        totalScrollDistance += rect.width;
+        
+        // Also account for gap between logos (gap-32 = 8rem = 128px)
+        // Get computed gap from the container's gap property
+        if (index < firstSetChildren.length - 1) {
+          const computedStyle = window.getComputedStyle(container);
+          const gap = parseFloat(computedStyle.gap) || 128; // fallback to 128px if gap not found
+          totalScrollDistance += gap;
+        }
+      });
+      
+      // If measurement failed, use a fallback calculation
+      if (totalScrollDistance === 0 || totalScrollDistance < 100) {
+        // Fallback: estimate based on logo count and typical widths
+        // w-40 = 160px, gap-32 = 128px
+        totalScrollDistance = (companyLogos.length * 160) + ((companyLogos.length - 1) * 128);
+      }
+      
+      // Calculate scroll speed based on viewport size
+      // Mobile: Moderate speed for comfortable viewing
+      // Desktop: Moderate speed for comfortable viewing
+      const isMobile = viewportWidth < 768;
+      const pixelsPerSecond = isMobile ? 150 : 130;
+      
+      // Duration = distance / speed
+      // This is the time it takes to scroll through all logos in one set
+      const duration = totalScrollDistance / pixelsPerSecond;
+      
+      // Ensure minimum duration of 1s and maximum of 60s
+      // Mobile should be much faster, so allow shorter durations
+      const minDuration = isMobile ? 1 : 3;
+      const clampedDuration = Math.max(minDuration, Math.min(60, duration));
+      
+      // Debug logging (can be removed in production)
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Scroll animation calculation:', {
+          viewportWidth,
+          isMobile,
+          totalScrollDistance,
+          pixelsPerSecond,
+          calculatedDuration: duration,
+          finalDuration: clampedDuration,
+          numLogos: companyLogos.length,
+          logoWidths: firstSetChildren.map((child, i) => ({
+            index: i,
+            width: child.getBoundingClientRect().width,
+          })),
+        });
+      }
+      
+      // Only update if we have a valid scroll distance
+      if (totalScrollDistance > 0) {
+        setScrollDuration(clampedDuration);
+        setScrollDistance(totalScrollDistance);
+        
+        // Create or update dynamic keyframes for the exact scroll distance
+        const styleId = 'dynamic-scroll-keyframes';
+        let styleElement = document.getElementById(styleId) as HTMLStyleElement;
+        
+        if (!styleElement) {
+          styleElement = document.createElement('style');
+          styleElement.id = styleId;
+          document.head.appendChild(styleElement);
+        }
+        
+        // Update keyframes with the exact pixel distance
+        styleElement.textContent = `
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-${totalScrollDistance}px);
+            }
+          }
+        `;
+      }
+    };
+
+    // Calculate on mount and window resize
+    // Use multiple attempts to ensure DOM is ready and measured correctly
+    const attemptCalculation = (attempt = 0) => {
+      if (attempt < 5) {
+        requestAnimationFrame(() => {
+          calculateScrollDuration();
+          // Try again after a delay if width still seems wrong
+          if (scrollContainerRef.current) {
+            const width = scrollContainerRef.current.scrollWidth || scrollContainerRef.current.offsetWidth;
+            if (width === 0 || width < 100) {
+              setTimeout(() => attemptCalculation(attempt + 1), 100 * (attempt + 1));
+            }
+          }
+        });
+      }
+    };
+    
+    attemptCalculation();
+    window.addEventListener('resize', calculateScrollDuration);
+    
+    // Also recalculate after images load (they might affect width)
+    const images = scrollContainerRef.current?.querySelectorAll('img');
+    if (images && images.length > 0) {
+      let loadedCount = 0;
+      const totalImages = images.length;
+      
+      const checkAllLoaded = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          // Multiple recalculations with delays to ensure layout is fully updated
+          setTimeout(calculateScrollDuration, 100);
+          setTimeout(calculateScrollDuration, 300);
+          setTimeout(calculateScrollDuration, 600);
+        }
+      };
+      
+      images.forEach((img) => {
+        if (img.complete) {
+          checkAllLoaded();
+        } else {
+          img.addEventListener('load', checkAllLoaded, { once: true });
+          img.addEventListener('error', checkAllLoaded, { once: true });
+        }
+      });
+    }
+    
+    // Also recalculate after a short delay to catch any layout shifts
+    const timeoutId = setTimeout(() => {
+      calculateScrollDuration();
+    }, 500);
+
+    return () => {
+      window.removeEventListener('resize', calculateScrollDuration);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   // Calculate average rating
@@ -284,7 +440,16 @@ export default function Home() {
           {/* Scrolling Company Logos - Social Proof */}
           <GeistCard className="p-0 mb-20 overflow-hidden relative" style={{ zIndex: 1 }}>
             <div className="overflow-hidden relative">
-              <div className="flex gap-32 items-center animate-scroll whitespace-nowrap py-8">
+              <div 
+                ref={scrollContainerRef}
+                className="flex gap-32 items-center whitespace-nowrap py-8"
+                style={{
+                  animation: scrollDistance > 0 
+                    ? `scroll ${scrollDuration}s linear infinite`
+                    : undefined,
+                  display: 'flex',
+                }}
+              >
                 {companyLogos.map((company, index) => (
                   <div
                     key={index}
