@@ -52,12 +52,12 @@ export default function Footer() {
               <h3 className="text-heading-16 mb-4 font-semibold text-black">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/" className="text-copy-14 text-black no-underline hover:underline" style={{ color: '#000000' }}>
+                  <Link href="/" className="text-copy-14-mono text-black no-underline hover:underline" style={{ color: '#000000' }}>
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-copy-14 text-black no-underline hover:underline" style={{ color: '#000000' }}>
+                  <Link href="/contact" className="text-copy-14-mono text-black no-underline hover:underline" style={{ color: '#000000' }}>
                     Contact
                   </Link>
                 </li>
@@ -73,7 +73,7 @@ export default function Footer() {
                     href="https://alakazamlabs.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Alakazam Labs
@@ -84,7 +84,7 @@ export default function Footer() {
                     href="https://discover-nocode.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Discover NoCode
@@ -95,7 +95,7 @@ export default function Footer() {
                     href="https://docs.lztek.io" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Documentation
@@ -113,7 +113,7 @@ export default function Footer() {
                     href="https://vercel.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Vercel
@@ -124,7 +124,7 @@ export default function Footer() {
                     href="https://www.netlify.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Netlify
@@ -135,7 +135,7 @@ export default function Footer() {
                     href="https://supabase.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Supabase
@@ -146,7 +146,7 @@ export default function Footer() {
                     href="https://firebase.google.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Firebase
@@ -157,7 +157,7 @@ export default function Footer() {
                     href="https://capacitorjs.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-copy-14 text-black no-underline hover:underline"
+                    className="text-copy-14-mono text-black no-underline hover:underline"
                     style={{ color: '#000000' }}
                   >
                     Capacitor

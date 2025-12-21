@@ -117,12 +117,12 @@ export default function Navigation({
           top: 0,
           left: 0,
           right: 0,
-          ...(scrolled ? {
+          ...(scrolled || isOpen ? {
             background: '#ffffff',
             backdropFilter: 'none',
             WebkitBackdropFilter: 'none',
-            borderBottom: '1px solid #eaeaea',
-            boxShadow: '0 1px 0 0 rgba(0, 0, 0, 0.08)'
+            borderBottom: scrolled ? '1px solid #eaeaea' : 'none',
+            boxShadow: scrolled ? '0 1px 0 0 rgba(0, 0, 0, 0.08)' : 'none'
           } : {})
         }}
       >
@@ -248,15 +248,15 @@ export default function Navigation({
                 setShowComingSoon(true);
                 setTimeout(() => setShowComingSoon(false), 3000);
               }}
-              className="px-4 py-2 text-sm font-medium min-h-[44px] flex items-center bg-white text-black border border-black hover:bg-gray-50 cursor-pointer"
-              style={{ color: '#000000', borderColor: '#000000' }}
+              className="py-2 text-sm font-medium min-h-[44px] flex items-center bg-white text-black hover:bg-gray-50 cursor-pointer"
+              style={{ color: '#000000', border: '1px solid #000000', paddingLeft: '21px', paddingRight: '21px' }}
             >
               Log in
             </button>
             
             {/* Get Started Button */}
             <Link href="/get-started">
-              <button className="px-4 py-2 text-sm font-medium min-h-[44px] flex items-center bg-black text-white hover:bg-gray-900 cursor-pointer">
+              <button className="geist-button px-4 py-2 text-sm font-medium min-h-[44px] flex items-center bg-black text-white hover:bg-gray-900 cursor-pointer">
                 Get Started
               </button>
             </Link>
@@ -294,7 +294,12 @@ export default function Navigation({
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden py-4 space-y-1 overflow-hidden border-t border-gray-200"
+              className="md:hidden py-4 space-y-1 overflow-hidden border-t border-gray-200 bg-white"
+              style={{
+                background: '#ffffff',
+                backdropFilter: 'none',
+                WebkitBackdropFilter: 'none'
+              }}
             >
               {/* Internal Links */}
               {links.filter(link => !link.external).map((item, index) => {
@@ -365,13 +370,13 @@ export default function Navigation({
                     setShowComingSoon(true);
                     setTimeout(() => setShowComingSoon(false), 3000);
                   }}
-                  className="w-full px-4 py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-white text-black border border-black hover:bg-gray-50 cursor-pointer"
-                  style={{ color: '#000000', borderColor: '#000000' }}
+                  className="w-full py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-white text-black hover:bg-gray-50 cursor-pointer"
+                  style={{ color: '#000000', border: '1px solid #000000', paddingLeft: '21px', paddingRight: '21px' }}
                 >
                   Log in
                 </button>
                 <Link href="/get-started" onClick={() => setIsOpen(false)} className="block">
-                  <button className="w-full px-4 py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-black text-white hover:bg-gray-900 cursor-pointer">
+                  <button className="geist-button w-full px-4 py-3 text-base font-medium min-h-[44px] flex items-center justify-center bg-black text-white hover:bg-gray-900 cursor-pointer">
                     Get Started
                   </button>
                 </Link>

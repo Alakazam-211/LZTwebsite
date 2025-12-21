@@ -37,6 +37,19 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Headings use monospace for programmer-y feel */
+h1, h2, h3 {
+  font-family: var(--font-geist-mono);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Keep h4, h5, h6 as monospace for consistency */
+h4, h5, h6 {
+  font-family: var(--font-geist-mono);
+  font-weight: 600;
+}
+
 main {
   position: relative;
   z-index: 1;

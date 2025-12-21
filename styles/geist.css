@@ -254,6 +254,11 @@ nav.geist-nav.geist-nav-dark.geist-nav-scrolled {
   color: var(--geist-foreground-dark);
 }
 
+/* Navbar links use monospace for programmer-y feel */
+.geist-nav a {
+  font-family: var(--geist-font-mono);
+}
+
 /* ============================================
    GEIST BUTTON
    ============================================ */
@@ -263,7 +268,7 @@ nav.geist-nav.geist-nav-dark.geist-nav-scrolled {
   align-items: center;
   justify-content: center;
   border-radius: 0;
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-weight: 500;
   font-size: 0.875rem; /* 14px - text-button-14 */
   line-height: 1.25rem;
@@ -288,6 +293,7 @@ nav.geist-nav.geist-nav-dark.geist-nav-scrolled {
 
 .geist-button-primary:active {
   /* No transform - static design */
+  transform: none;
 }
 
 .geist-button-secondary {
@@ -423,9 +429,9 @@ a:hover {
    GEIST TYPOGRAPHY
    ============================================ */
 
-/* Headings */
+/* Headings - Using Geist Mono for programmer-y feel */
 .text-heading-72 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 4.5rem; /* 72px */
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -433,7 +439,7 @@ a:hover {
 }
 
 .text-heading-64 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 4rem; /* 64px */
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -441,7 +447,7 @@ a:hover {
 }
 
 .text-heading-56 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 3.5rem; /* 56px */
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -449,7 +455,7 @@ a:hover {
 }
 
 .text-heading-48 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 3rem; /* 48px */
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -457,7 +463,7 @@ a:hover {
 }
 
 .text-heading-40 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 2.5rem; /* 40px */
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -465,7 +471,7 @@ a:hover {
 }
 
 .text-heading-32 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 2rem; /* 32px */
   line-height: 1.3;
   letter-spacing: -0.01em;
@@ -477,7 +483,7 @@ a:hover {
 }
 
 .text-heading-24 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 1.5rem; /* 24px */
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -489,7 +495,7 @@ a:hover {
 }
 
 .text-heading-20 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 1.25rem; /* 20px */
   line-height: 1.4;
   font-weight: 600;
@@ -500,7 +506,7 @@ a:hover {
 }
 
 .text-heading-16 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 1rem; /* 16px */
   line-height: 1.5;
   font-weight: 600;
@@ -511,15 +517,15 @@ a:hover {
 }
 
 .text-heading-14 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 0.875rem; /* 14px */
   line-height: 1.5;
   font-weight: 600;
 }
 
-/* Buttons */
+/* Buttons - Using Geist Mono for programmer-y feel */
 .text-button-16 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 1rem; /* 16px */
   line-height: 1.5;
   font-weight: 500;
@@ -527,7 +533,7 @@ a:hover {
 }
 
 .text-button-14 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 0.875rem; /* 14px */
   line-height: 1.5;
   font-weight: 500;
@@ -535,7 +541,7 @@ a:hover {
 }
 
 .text-button-12 {
-  font-family: var(--geist-font-sans);
+  font-family: var(--geist-font-mono);
   font-size: 0.75rem; /* 12px */
   line-height: 1.5;
   font-weight: 500;
@@ -680,6 +686,17 @@ a:hover {
   font-weight: 600;
 }
 
+.text-copy-14-mono {
+  font-family: var(--geist-font-mono);
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-copy-14-mono strong {
+  font-weight: 600;
+}
+
 .text-copy-13 {
   font-family: var(--geist-font-sans);
   font-size: 0.8125rem; /* 13px */
@@ -692,6 +709,17 @@ a:hover {
   font-size: 0.8125rem; /* 13px */
   line-height: 1.6;
   font-weight: 400;
+}
+
+.text-copy-12 {
+  font-family: var(--geist-font-mono);
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-copy-12 strong {
+  font-weight: 600;
 }
 
 /* ============================================
