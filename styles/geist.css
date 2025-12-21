@@ -210,10 +210,21 @@
   background: transparent;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   border-bottom: 0 solid transparent;
+  width: 100%;
+  /* iOS Safari safe area support - extend navbar into safe area */
+  padding-top: env(safe-area-inset-top);
+  padding-top: constant(safe-area-inset-top); /* Fallback for older iOS */
+  /* Ensure backdrop filter works on iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  /* Prevent iOS Safari bounce effect */
+  overscroll-behavior: none;
 }
 
 .geist-nav-scrolled {
@@ -718,6 +729,91 @@ a:hover {
   
   .geist-button {
     width: 100%;
+  }
+}
+
+/* ============================================
+   iOS SAFARI SPECIFIC OPTIMIZATIONS
+   ============================================ */
+
+/* Fix iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  html,
+  body,
+  main {
+    height: -webkit-fill-available;
+  }
+}
+
+/* iOS Safari input zoom prevention */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* iOS Safari tap highlight removal */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safari smooth scrolling */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* iOS Safari safe area insets for navbar */
+.geist-nav > div {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* Fallback for older iOS versions */
+.geist-nav > div {
+  padding-left: max(1rem, constant(safe-area-inset-left));
+  padding-right: max(1rem, constant(safe-area-inset-right));
+}
+
+/* iOS Safari backdrop filter fallback */
+@supports not (backdrop-filter: blur(12px)) {
+  .geist-nav {
+    background: var(--geist-background);
+  }
+  
+  .geist-nav-scrolled {
+    background: var(--geist-background);
+  }
+}
+
+/* iOS Safari fixed positioning fix */
+@supports (-webkit-touch-callout: none) {
+  .geist-nav {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+/* iOS Safari overscroll behavior */
+@supports (-webkit-touch-callout: none) {
+  html {
+    overscroll-behavior-y: contain;
+  }
+  
+  body {
+    overscroll-behavior-y: contain;
   }
 }
 

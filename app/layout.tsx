@@ -19,6 +19,22 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://lztek.io'),
   title: "LZTEK | Hosting Services",
   description: "Professional hosting services for web and mobile applications. Deploy to Vercel, Netlify, Capacitor, Supabase, Firebase, and app stores.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: 'cover',
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'LZTEK',
+  },
   icons: {
     icon: [
       { url: '/favicon.jpg', type: 'image/jpeg' },
@@ -57,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="ios-safari-optimized">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -70,7 +86,7 @@ export default function RootLayout({
             { href: 'https://docs.lztek.io', label: 'Docs', external: true },
           ]}
         />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-16 safe-area-top">
           {children}
         </main>
         <Footer />
